@@ -1,0 +1,33 @@
+from tkinter import *
+4    import random, string
+5    
+6    root =Tk()
+7    root.geometry("400x400")
+8    root.resizable(0,0)
+9    root.title("YAY - PASSWORD GENERATOR")
+10   #heading
+11   heading = Label(root, text = 'PASSWORD GENERATOR' , font ='arial 15 bold').pack()
+12   
+13   
+14   
+15   pass_label = Label(root, text = 'PASSWORD LENGTH', font = 'arial 10 bold').pack()
+16   pass_len = IntVar()
+17   length = Spinbox(root, from_ = 8, to_ = 32 , textvariable = pass_len , width = 15).pack()
+18   
+19   
+20   pass_str = StringVar()
+21   def Generator():
+22       password = ''
+23   
+24       for x in range (0,4):
+25           Password = random.choice(string.ascii_uppercase) + random.choice(string.ascii_lowercase) + random.choice(string.digits) + random.choice(string.punctuation)
+26       for y in range(pass_len.get()- 4):
+27           password = password + random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits + string.punctuation)
+28       pass_str.set(password)
+29   
+30   Button(root, text = "GENERATE PASSWORD" , command = Generator ).pack(pady= 5)
+31   
+32   Entry(root , textvariable = pass_str).pack()
+33   
+34   root.mainloop()
+35   
